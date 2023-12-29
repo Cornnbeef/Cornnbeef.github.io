@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para kay Andrea lang</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('kitty_background.jpg'); /* Replace 'kitty_background.jpg' with the actual path to your kitty holding a heart image */
+            background-size: 90% 90%;
+            background-position: center;
+            color: #fff;
+            flex-direction: column;
+            position: relative;
+        }
+
+        #question {
+             margin-bottom: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			color: #000000;
+        }
+
+        #buttons {
+            display: flex;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Additional style for "Mag yes na yan" */
+        .mag-yes {
+            position: absolute;
+            font-size: 24px;
+            color: #ff4081;
+            font-weight: bold;
+        }
+
+        .top-left {
+            top: 20px;
+            left: 20px;
+        }
+
+        .bottom-right {
+            bottom: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="question">
+        <p style="margin: 0;">Today is the start of a new year, so I just want to ask you: can we hang out sometime?</p>
+    </div>
+
+    <div id="buttons">
+        <button onclick="redirectToThanksPage()">Yes</button>
+        <button onclick="moveNoButton()">No</button>
+    </div>
+
+    <!-- "Mag yes na yan" in different positions -->
+    <div class="mag-yes top-left">Mag yes na yan</div>
+    <div class="mag-yes bottom-right">Mag yes na yan</div>
+
+    <script>
+        function moveNoButton() {
+            var noButton = document.querySelector('button:nth-child(2)');
+            var maxX = window.innerWidth - noButton.offsetWidth;
+            var maxY = window.innerHeight - noButton.offsetHeight;
+
+            var randomX = Math.floor(Math.random() * maxX);
+            var randomY = Math.floor(Math.random() * maxY);
+
+            noButton.style.position = 'absolute';
+            noButton.style.left = randomX + 'px';
+            noButton.style.top = randomY + 'px';
+        }
+
+        function redirectToThanksPage() {
+            window.location.href = 'thanks.html';
+        }
+    </script>
+
+</body>
+</html>
